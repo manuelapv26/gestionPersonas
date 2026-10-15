@@ -1,10 +1,19 @@
 package com.eam.gestionpersonas.viewmodel
 
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import com.eam.gestionpersonas.data.model.Persona
+import com.eam.gestionpersonas.data.repository.PersonaRepository
+
 class PersonaViewModel : ViewModel() {
 
     var listaPersonas by mutableStateOf(
         PersonaRepository.listaPersonas.toList()
     )
+
         private set
     fun agregarPersona(persona: Persona) {
         PersonaRepository.listaPersonas.add(persona)
